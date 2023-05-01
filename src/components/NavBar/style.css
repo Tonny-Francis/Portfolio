@@ -27,5 +27,18 @@
 
 .Logo {
     width: 40px;
+    height: 40px;
     margin-right: 1rem;
+}
+
+.MuiTab-root {
+  color: white !important;
+}
+
+.MuiTab-textColorPrimary.Mui-selected {
+  color: #5DB65D !important;
+}
+
+.MuiTabs-indicator {
+  background-color: #5DB65D !important;
 }
