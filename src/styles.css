@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    width: calc(100vw - 40px);
+    height: calc(100vh - 40px);
+    background-color: #2C2F3D;
+    margin: 20px;
+    padding: 0;
+    font-family: 'Roboto Mono', monospace;
+}
