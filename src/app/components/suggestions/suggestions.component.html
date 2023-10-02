@@ -1,0 +1,72 @@
+<div class="container-suggestions">
+    <div *ngIf="webSize()" class="suggestions-web">
+        <div class="container-suggestion">
+            <div class="suggestion">
+                <h2>
+                    About Me
+                </h2>
+                <p>
+                    I'm a software developer <br> and student of...
+                </p>
+            </div>
+        </div>
+        <div class="container-suggestion">
+            <div class="suggestion">
+                <h2>
+                    Experience
+                </h2>
+                <p>
+                    My career highlights, <br> focusing on...
+                </p>
+            </div>
+        </div>
+        <div class="container-suggestion">
+            <div class="suggestion">
+                <h2>
+                    Projects
+                </h2>
+                <p>
+                    Notable projects I've <br> been a part of...
+                </p>
+            </div>
+        </div>
+        <div class="container-suggestion">
+            <div class="suggestion">
+                <h2>
+                    Skills
+                </h2>
+                <p>
+                    My technical skills and <br> proficiency...
+                </p>
+            </div>
+        </div>
+        <div class="container-suggestion">
+            <div class="suggestion">
+                <h2>
+                    Contacts
+                </h2>
+                <p>
+                    How to reach me for <br> opportunities...
+                </p>
+            </div>
+        </div>
+        <div class="container-suggestion">
+            <div class="suggestion">
+                <h2>
+                    CV
+                </h2>
+                <p>
+                    My comprehensive resume, <br> detailing my...
+                </p>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!webSize()" class="suggestions-mobile">
+        <div class="options">
+            <h2>
+                Seggestions
+            </h2>
+            <fa-icon class="suggestion-icon" [icon]="faPlus" size="lg"></fa-icon>
+        </div>
+    </div>
+</div>

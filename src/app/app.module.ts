@@ -6,14 +6,16 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { FormsModule } from '@angular/forms'; // Certifique-se de importar FormsModule
+import { FormsModule } from '@angular/forms';
+import { SuggestionsComponent } from './components/suggestions/suggestions.component'; // Certifique-se de importar FormsModule
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    SearchComponent
+    SearchComponent,
+    SuggestionsComponent
   ],
   imports: [
     BrowserModule,
