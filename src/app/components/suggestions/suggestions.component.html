@@ -1,81 +1,16 @@
 <div class="container-suggestions">
-    <div class="suggestions-web">
-        <div class="container-suggestion">
-            <div class="suggestion">
+    <div class="suggestions-web" [ngStyle]="{'display': suggestionsStyle }"> 
+        <div class="container-suggestion"  *ngFor="let suggestion of suggestions">
+            <div class="suggestion" (click)="search(suggestion.title)">
                 <div>
                     <h2>
-                        About Me
+                        {{ suggestion.title }}
                     </h2>
                     <p>
-                        I'm a software developer <br> and student of...
+                        {{ suggestion.description }}
                     </p>
                 </div>
                 <div></div>
-                <fa-icon class="icon-plane-suggestion" [icon]="faPlane" size="xl"></fa-icon>
-            </div>
-        </div>
-        <div class="container-suggestion">
-            <div class="suggestion">
-                <div>
-                    <h2>
-                        Experience
-                    </h2>
-                    <p>
-                        My career highlights, <br> focusing on...
-                    </p>
-                </div>
-                <fa-icon class="icon-plane-suggestion" [icon]="faPlane" size="xl"></fa-icon>
-            </div>
-        </div>
-        <div class="container-suggestion">
-            <div class="suggestion">
-                <div>
-                    <h2>
-                        Projects
-                    </h2>
-                    <p>
-                        Notable projects I've <br> been a part of...
-                    </p>
-                </div>
-                <fa-icon class="icon-plane-suggestion" [icon]="faPlane" size="xl"></fa-icon>
-            </div>
-        </div>
-        <div class="container-suggestion">
-            <div class="suggestion">
-                <div>
-                    <h2>
-                        Skills
-                    </h2>
-                    <p>
-                        My technical skills and <br> proficiency...
-                    </p>
-                </div>
-                <fa-icon class="icon-plane-suggestion" [icon]="faPlane" size="xl"></fa-icon>
-            </div>
-        </div>
-        <div class="container-suggestion">
-            <div class="suggestion">
-                <div>
-                    <h2>
-                        Contacts
-                    </h2>
-                    <p>
-                        How to reach me for <br> opportunities...
-                    </p>
-                </div>
-                <fa-icon class="icon-plane-suggestion" [icon]="faPlane" size="xl"></fa-icon>
-            </div>
-        </div>
-        <div class="container-suggestion">
-            <div class="suggestion">
-                <div>
-                    <h2>
-                        CV
-                    </h2>
-                    <p>
-                        My comprehensive resume, <br> detailing my...
-                    </p>
-                </div>
                 <fa-icon class="icon-plane-suggestion" [icon]="faPlane" size="xl"></fa-icon>
             </div>
         </div>
