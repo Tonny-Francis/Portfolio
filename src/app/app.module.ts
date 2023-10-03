@@ -7,7 +7,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
-import { SuggestionsComponent } from './components/suggestions/suggestions.component'; // Certifique-se de importar FormsModule
+import { SuggestionsComponent } from './components/suggestions/suggestions.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { SuggestionsComponent } from './components/suggestions/suggestions.compo
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

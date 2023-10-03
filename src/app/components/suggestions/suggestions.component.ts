@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faPaperPlane, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'suggestions',
@@ -8,6 +8,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons';
 })
 export class SuggestionsComponent {
   faPlus = faPlus;
+  faPlane =faPaperPlane;
 
   webSize() {
     if (window.innerWidth < 768) {
