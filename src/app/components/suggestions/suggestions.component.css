@@ -31,6 +31,9 @@
     border-radius: 15px;
     padding: 10px;
     transition: 0.3s;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: aparecer 0.5s ease-in-out forwards;
 }
 
 .suggestion div h2 {
@@ -72,10 +75,12 @@
 }
 
 .suggestion-icon {
-    color: white;;
+    color: white;
+    ;
 }
 
-.suggestion:hover, .options:hover {
+.suggestion:hover,
+.options:hover {
     background-color: #343748;
 
     .icon-plane-suggestion {
@@ -98,15 +103,14 @@
     }
 }
 
-.tooltip-suggestion .tooltip {
-    background-color: #333;
-    color: #fff;
-    border-radius: 5px;
-    padding: 5px;
-    opacity: 0.9;
-    font-size: 14px; /* Tamanho da fonte */
-}
+@keyframes aparecer {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
 
-.tooltip-suggestion .arrow::before {
-    border-top-color: #333; /* Cor da seta do tooltip */
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
