@@ -53,8 +53,17 @@ jobs:
             - name: Login to DockerHub
               run: echo ${{ secrets.DOCKER_HUB_TOKEN }} | docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
 
-            - name: Run an Oracle Cloud Infrastructure (OCI) CLI command
+            - name: Run an Oracle Cloud Infrastructure (OCI) CLI 
               uses: oracle-actions/run-oci-cli-command@v1.3.0
+              with:
+                command: 'oci ce cluster create-kubeconfig --cluster-id ${{ secrets.OCI_CLI_CLUSTER }} --file $HOME/.kube/config --region us-chicago-1 --token-version 2.0.0  --kube-endpoint PUBLIC_ENDPOINT'
+          
+            - name: Export KUBECONFIG
+              run: export KUBECONFIG=$HOME/.kube/config
 
-            - name: Teste OCI
-              run: oci -v
+            - name: Setup Kubectl
+              uses: actions-hub/kubectl@master
+              env:
+                KUBE_CONFIG: $HOME/.kube/config
+              with:
+                args: 'get pods'
