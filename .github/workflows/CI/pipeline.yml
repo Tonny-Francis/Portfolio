@@ -1,0 +1,55 @@
+name: Build and Deply
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        environment: production
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - name: Setup Docker
+              uses: docker/setup-buildx-action@v3
+
+            - name: Login to DockerHub
+              run: echo ${{ secrets.DOCKER_HUB_TOKEN }} | docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
+
+            - name: Build Image
+              run: docker build -t ${{ vars.SERVICE_NAME }}:lastest .
+
+            - name: Tag Image
+              run: docker tag ${{ vars.SERVICE_NAME }}:lastest ${{ secrets.DOCKER_HUB_USERNAME }}/${{ vars.SERVICE_NAME }}:lastest
+
+            - name: Push Image
+              run: docker push ${{ vars.SERVICE_NAME }}:lastest
+
+    # deploy:
+    #     runs-on: ubuntu-lastest
+
+    #     environment: production
+
+    #     steps:
+    #         - name: Checkout code
+    #           uses: actions/checkout@v2
+
+    #         - name: Setup Docker
+    #           uses: docker/setup-buildx-action@v3
+
+    #         - name: Login to DockerHub
+    #           run: echo ${{ secrets.DOCKER_HUB_TOKEN }} | docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
+
+    #         - uses: actions-hub/kubectl@master
+    #           env:
+    #             KUBE_HOST: ${{ secrets.KUBE_HOST }}
+    #             KUBE_CERTIFICATE: ${{ secrets.KUBE_CERTIFICATE }}
+    #             KUBE_TOKEN: ${{ secrets.KUBE_TOKEN }}
+    #           whit:
+    #             args: apply -f k8s/deployment.yaml
