@@ -1,4 +1,4 @@
-FROM node:19.0.0-alpine
+FROM node:lts-alpine
 WORKDIR /usr
 
 COPY ./ .
