@@ -54,4 +54,4 @@ jobs:
                 node-version: 20
 
             - name: Generate Config OCI CLI
-              run: node ./scripts/createOCIConfig.js
+              run: node ./scripts/createOCIConfig.js ${{ secrets.OCI_FILE_ID_PRIVATE_KEY }}
