@@ -24,7 +24,7 @@ const { exec } = require('child_process');
 //     }
 // });
 
-exec('cd ~ && ls', (error, stdout, stderr) => {
+exec('cd /home && ls', (error, stdout, stderr) => {
     if (stdout) {
         console.log(stdout)
     }
