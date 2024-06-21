@@ -34,6 +34,7 @@ exec('mkdir -p /home/runner/.oci', (error, stdout, stderr) => {
 
 exec('mv oci_api_key.pem /home/runner/.oci/oci_api_key.pem', (error, stdout, stderr) => {
     if (error) {
+        console.error(error)
         console.error('Error moving file');
     }
 
