@@ -61,4 +61,5 @@ jobs:
               run: |
                 export PATH=/home/runner/lib/oracle-cli/bin:$PATH
                 oci --version
+                echo ls -la /home/runner/.oci
                 oci os ns get
