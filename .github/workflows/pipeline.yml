@@ -62,6 +62,10 @@ jobs:
                 export PATH=/home/runner/lib/oracle-cli/bin:$PATH
                 oci --version
 
+            - name: Test OCI CLI Config
+              run: |
+                oci os ns get
+
             - name: Setup Kubectl
               uses: actions-hub/kubectl@master
               env:
