@@ -42,11 +42,11 @@ jobs:
             - name: Checkout code
               uses: actions/checkout@v2
 
-            # - name: Download OCI CLI
-            #   run: curl -O https://raw.githubusercontent.com/oracle/oci-cli/master/scripts/install/install.sh
+            - name: Download OCI CLI
+              run: curl -O https://raw.githubusercontent.com/oracle/oci-cli/master/scripts/install/install.sh
 
-            # - name: Install OCI CLI
-            #   run: bash install.sh --accept-all-defaults --install-dir ~/lib/oracle-cli
+            - name: Install OCI CLI
+              run: bash install.sh --accept-all-defaults --install-dir ~/lib/oracle-cli
 
             - name: Setup Node
               uses: actions/setup-node@v4
@@ -54,4 +54,10 @@ jobs:
                 node-version: 20
 
             - name: Generate Config OCI CLI
-              run: node ./scripts/createOCIConfig.js ${{ secrets.OCI_FILE_ID_PRIVATE_KEY }}
+              run: node ./scripts/createOCIConfig.js ${{ secrets.OCI_FILE_ID_PRIVATE_KEY }} ${{ secrets.OCI_CLI_USER }} ${{ secrets.OCI_CLI_FINGERPRINT }} ${{ secrets.OCI_CLI_TENANCY }} ${{ vars.OCI_CLI_REGION}}
+
+            - name: Test OCI CLI
+              run: |
+                export PATH=/home/runner/lib/oracle-cli/bin:$PATH
+                oci -version
+                oci os ns get
