@@ -38,24 +38,27 @@ jobs:
         # needs: 'build'
         environment: production
 
-        env:
-          OCI_CLI_USER: ${{ secrets.OCI_CLI_USER }}
-          OCI_CLI_TENANCY: ${{ secrets.OCI_CLI_TENANCY }}
-          OCI_CLI_FINGERPRINT: ${{ secrets.OCI_CLI_FINGERPRINT }}
-          OCI_CLI_KEY_CONTENT: ${{ secrets.OCI_CLI_KEY_CONTENT }}
-          OCI_CLI_REGION: ${{ vars.OCI_CLI_REGION }}
-
         steps:
             - name: Checkout code
               uses: actions/checkout@v2
 
-            - name: Run an Oracle Cloud Infrastructure (OCI) CLI 
-              uses: oracle-actions/run-oci-cli-command@v1.3.0
-              with:
-                command: 'oci ce cluster create-kubeconfig --cluster-id ${{ secrets.OCI_CLI_CLUSTER }} --file $HOME/.kube/config --region us-chicago-1 --token-version 2.0.0  --kube-endpoint PUBLIC_ENDPOINT'
-          
-            - name: Export KUBECONFIG
-              run: export KUBECONFIG=$HOME/.kube/config
+            - name: Download OCI CLI
+              run: curl -O https://raw.githubusercontent.com/oracle/oci-cli/master/scripts/install/install.sh
+
+            - name: Install OCI CLI
+              run: bash install.sh --accept-all-defaults --install-dir ~/lib/oracle-cli
+
+            - name: Generate Config OCI CLI
+              run: echo ./scripts/create_oci_config.sh
+              env:
+                OCI_CLI_USER: ${{ secrets.OCI_CLI_USER }}
+                OCI_LINK_PRIVATE_KEY: ${{ secrets.OCI_LINK_PRIVATE_KEY }}
+                OCI_CLI_TENANCY: ${{ secrets.OCI_CLI_TENANCY }}
+                OCI_CLI_FINGERPRINT: ${{ secrets.OCI_CLI_FINGERPRINT }}
+                OCI_CLI_REGION: ${{ vars.OCI_CLI_REGION }}
+
+            - name: Test OCI CLI
+              run: oci os ns get
 
             - name: Setup Kubectl
               uses: actions-hub/kubectl@master
