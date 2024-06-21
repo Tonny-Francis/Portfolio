@@ -57,11 +57,10 @@ jobs:
                 OCI_CLI_FINGERPRINT: ${{ secrets.OCI_CLI_FINGERPRINT }}
                 OCI_CLI_REGION: ${{ vars.OCI_CLI_REGION }}
 
-            - name: Set OCI CLI Path
-              run: echo 'export PATH=/home/runner/bin:$PATH' >> $GITHUB_ENV
-              
             - name: Test OCI CLI
-              run: oci os ns get
+              run: |
+                export PATH=/home/runner/lib/oracle-cli/bin:$PATH
+                oci --version
 
             - name: Setup Kubectl
               uses: actions-hub/kubectl@master
