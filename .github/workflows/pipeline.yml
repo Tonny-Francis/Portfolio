@@ -62,23 +62,19 @@ jobs:
             - name: Install Kubectl
               run: sudo install -o root -g root -m 0755 kubectl /home/runner/bin/kubectl
 
-            - name: Test Kubectl
-              run: |
-                kubectl version --client
-
             - name: Export Kubeconfig
               run: |
                 mkdir -p /home/runner/.kube
                 echo "${{ secrets.KUBE_CONFIG }}" > /home/runner/.kube/config
-                export KUBECONFIG=/home/runner/.kube/config
+
+            - name: Test Kubectl
+              run: |
                 export PATH=/home/runner/lib/oracle-cli/bin:$PATH
                 kubectl get pods
 
-            - name: Get Pods
-              run: kubectl get pods
-
-            - name: Clear Files Privates OCI CLI
-              run: rm -rf /home/runner/.oci
-            
-            - name: Clear Files Temp
-              run: rm -rf ./scripts/tmp
+            - name: Clear Private Files
+              run: |
+                rm -rf ./scripts/oci_api_key.pem
+                rm -rf /home/runner/.oci
+                rm -rf /home/runner/.kube
+          
