@@ -74,6 +74,9 @@ jobs:
                 export PATH=/home/runner/lib/oracle-cli/bin:$PATH
                 kubectl get pods
 
+            - name: Get Pods
+              run: kubectl get pods
+
             - name: Clear Files Privates OCI CLI
               run: rm -rf /home/runner/.oci
             
