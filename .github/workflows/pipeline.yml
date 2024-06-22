@@ -66,6 +66,14 @@ jobs:
               run: |
                 kubectl version --client
 
+            - name: Export Kubeconfig
+              run: |
+                mkdir -p /home/runner/.kube
+                echo "${{ secrets.KUBE_CONFIG }}" > /home/runner/.kube/config
+                export KUBECONFIG=/home/runner/.kube/config
+                export PATH=/home/runner/lib/oracle-cli/bin:$PATH
+                kubectl get pods
+
             - name: Clear Files Privates OCI CLI
               run: rm -rf /home/runner/.oci
             
