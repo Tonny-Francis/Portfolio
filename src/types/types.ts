@@ -3,18 +3,19 @@ export interface ITerminalHistory {
     log?: ILog;
 }
 
+export interface IList {
+    title: string;
+    options: {
+        item: string;
+        description?: string;
+    }[];
+}
+
 export interface ILog {
     layout: {
         simple?: {
             description: string;
         },
-        table?: {
-            title: string;
-            sections: string[];
-            data: {
-                command: string;
-                description: string;
-            }[];
-        }
+        list?: IList;
     },
 }
