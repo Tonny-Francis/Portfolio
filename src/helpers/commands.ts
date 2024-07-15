@@ -98,7 +98,7 @@ export default function Commands(command: string): ILog {
                         options: [
                             {
                                 item: "Email",
-                                description: "contact@tonnysousa.dev"
+                                description: "tonnyfrancis161@poli.ufrj.br"
                             },
                             {
                                 item: "GitHub",
