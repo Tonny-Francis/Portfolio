@@ -10,13 +10,13 @@ export default function Portfolio({
         <div>
             <Input value={command} disabled={true}/>
             <div className='flex flex-col items-center justify-center'>
-                <div className="flex flex-row ">
-                    <pre className="text-[4px] text-white text-center mr-6">
+                <div className="flex flex-row items-center justify-center">
+                    <pre className="text-[2px] md:text-[4px] text-white text-center mr-6">
                         {
                             asciiBug
                         }
                     </pre>
-                    <pre className="text-[12px] text-white text-center">
+                    <pre className="text-[10px] md:text-[12px] text-white text-center">
                         {
                             asciiName
                         }
