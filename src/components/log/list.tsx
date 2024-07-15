@@ -17,7 +17,7 @@ export default function List({
                 <p>{list.title}</p>
                 <div className="ml-8">
                     {list.options.map((option, i) => (
-                        <div key={i} className="flex items-start">
+                        <div key={i} className="flex items-start flex-col md:flex-row pb-2 md:pb-0">
                             <div className="w-40 pr-4">
                                 <span>{option.item}</span>
                             </div>

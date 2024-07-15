@@ -40,7 +40,7 @@ export default function Terminal() {
                 command
             ])
 
-            command === 'clear' && handlerClear()
+            command.toLowerCase() === 'clear' && handlerClear()
 
             setCurrentCommand('')
         }
