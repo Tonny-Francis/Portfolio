@@ -1,11 +1,19 @@
-import Maintenance from "@/src/components/maintenance";
-import Terminal from "@/src/components/terminal";
+import Hero from "@/src/components/Hero";
+import Skills from "@/src/components/Skills";
+import Projects from "@/src/components/Projects";
+import Experience from "@/src/components/Experience";
+import Contact from "@/src/components/Contact";
+import Footer from "@/src/components/Footer";
 
 export default function Home() {
   return (
-    <div className="w-full h-screen bg-primary flex flex-row items-center justify-center">
-      {/* <Maintenance /> */}
-      <Terminal />
-    </div>
+    <main className="min-h-screen">
+      <Hero />
+      <Skills />
+      <Projects />
+      <Experience />
+      <Contact />
+      <Footer />
+    </main>
   );
 }
