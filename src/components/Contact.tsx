@@ -8,7 +8,7 @@ export default function Contact() {
           Get in Touch
         </h2>
         <p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
-          I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+          I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
