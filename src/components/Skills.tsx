@@ -24,7 +24,7 @@ const skills: Skill[] = [
   },
   {
     category: "Clouds",
-    items: ["AWS", "Oracle Cloud"]
+    items: ["AWS", "Oracle Cloud", "Hetzner"]
   }
 ]
 

@@ -17,6 +17,12 @@ const experiences: ExperienceItem[] = [
   //   url: "https://nexusops.com.br"
   // },
   {
+    company: "B.Safe Solutions",
+    role: "DevOps Engineer / Infrastructure Consultant (Freelance)",
+    period: "Mar 2026 - Apr 2026",
+    description: "Designed and implemented production-ready K3s cluster on Hetzner Cloud. Built complete CI/CD pipelines, monitoring, logging infrastructure, and deployment automation."
+  },
+  {
     company: "Convem",
     role: "Full-Stack Developer",
     period: "2022 - Present",

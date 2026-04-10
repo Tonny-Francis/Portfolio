@@ -22,18 +22,6 @@ const projects: Project[] = [
     demoUrl: "https://nexusops.com.br"
   },
   {
-    name: "Convem",
-    description: "Development of solutions for Convem, a company providing scalable products and services for fintechs.",
-    techStack: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
-    demoUrl: "https://convem.io/"
-  },
-  {
-    name: "Regulatório Mais",
-    description: "Contributed to a regulatory compliance platform for financial institutions, automating reports to regulators.",
-    techStack: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
-    demoUrl: "https://regulatoriomais.com.br/"
-  },
-  {
     name: "Terminal Portfolio",
     description: "Interactive terminal-style portfolio built with Next.js, showcasing projects with a command-line interface.",
     techStack: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
