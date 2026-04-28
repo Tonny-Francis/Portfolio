@@ -5,10 +5,18 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    color-scheme: dark;
   }
-  
+
   body {
-    @apply text-gray-900 bg-white;
+    @apply bg-bg text-fg;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    @apply bg-fg text-bg;
   }
 }
 
@@ -16,4 +24,71 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .grid-noise {
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.06) 1px, transparent 0);
+    background-size: 24px 24px;
+  }
+}
+
+/* Section number labels */
+.section-label {
+  @apply font-mono text-xs uppercase tracking-[0.2em] text-fg-muted;
+}
+
+.section-title {
+  @apply text-4xl md:text-6xl font-bold text-fg leading-[1.05] tracking-tight;
+}
+
+/* Marquee mask */
+.marquee-mask {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+/* Prose tweaks for dark mode blog */
+.prose pre {
+  @apply rounded-lg overflow-x-auto px-4 py-4 text-sm border border-border;
+}
+
+.prose pre code {
+  @apply bg-transparent p-0 text-inherit;
+}
+
+.prose :not(pre) > code {
+  @apply px-1.5 py-0.5 bg-bg-elevated border border-border rounded text-[0.9em] font-mono text-fg;
+}
+
+.prose :not(pre) > code::before,
+.prose :not(pre) > code::after {
+  content: none;
+}
+
+.prose pre [data-line] {
+  @apply px-1;
 }
